@@ -1,0 +1,93 @@
+<div class="container-fluid bg-light">
+  
+        <div  class="bg row" style="height:100%">
+          <div class="col-4 border" >
+                   Select Company Name
+                 <select [(ngModel)]="cname">
+                   <option value="0">--Select Company Name--</option>
+                   <option value="ADANIPORTS">AdaniPorts</option>
+                   <option value="ASIANPAINT">AsianPaint</option>
+                   <option value="ICICIBANK">IciciBank</option>
+                   <option value="MARUTI">Maruti</option>
+                   <option value="TCS">Tcs</option>
+                   </select>
+      
+      
+      
+      
+      
+            <button class="mt-1" (click)="getAnalysis()">
+                Smart Analysis
+              </button> 
+            <div *ngIf="error" class="bg-danger">
+              Invalid Company name
+            </div>
+              <table class="border" style="width:100%" >
+                <tr>
+                  <td>Enter the prediction for after ( year(s) )</td>
+                  <td> 
+                    <select [(ngModel)]="prediction_year"  >
+      
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+      
+                    
+                </td>
+                
+                </tr>
+                <tr>
+                    <td >
+                      <div> Enter the order of the polynomial  </div>
+                    </td>
+                    <td>
+                      <input type="number"  class="mt-1" [(ngModel)]="order"   >
+                      <input type="submit" class="mt-1" (click) = "analyze()" >
+                    </td>
+                  </tr>
+                
+                <tr class="mt-4">
+                  <td>Predicted value</td>
+                  <td>
+                    <label class="mt-1"  style="width:100%">{{predicted_value | number}} </label>
+      
+                  </td>
+                </tr>
+                <tr class="mt-4">
+                  <td>Current value</td>
+                  <td>
+                    <label class="mt-1"  style="width:100%">{{current_value | number }} </label>
+      
+                  </td>
+                </tr>
+                
+                <tr>
+                  <td>Current Advice</td>
+                  <td>
+                      <label class="mt-1"  style="width:100%">{{current_advice | titlecase }} </label>
+                  </td>
+                </tr>
+      
+                
+              </table>
+                <!-- <tr>
+                  <td>confidence</td>
+                  <td>1</td>
+                </tr> -->
+                <table>
+                    <tr >
+                        <td >
+                            <button type="button" class="btn btn-secondary " (click)="logout()">Logout</button>
+                        </td>
+                      </tr>
+                </table>
+      
+          </div>
+      
+        
+          <div id="chartContainer"  class="col-8 border centerize "  >
+            
+          </div>    
+        </div>
+      </div>
